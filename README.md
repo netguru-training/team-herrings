@@ -1,6 +1,8 @@
 Herrings App
 ================
 
+[![Join the chat at https://gitter.im/netguru-training/team-herrings](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/netguru-training/team-herrings?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem

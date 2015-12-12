@@ -1,7 +1,11 @@
 = simple_form_for([:admin, @user]) do |f|
   = f.error_notification
 
-  .form-inputs
-
+  = f.input :email
+  = f.input :name
+  = f.input :password
+  = f.input :password_confirmation
+  = f.input :role, collection: User::ROLES, prompt: "Select role"
   .form-actions
     = f.button :submit
+    = link_to t('shared.back'), admin_users_path, class: 'btn btn-default'

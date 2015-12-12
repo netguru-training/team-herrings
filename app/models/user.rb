@@ -35,4 +35,8 @@ class User < ActiveRecord::Base
   def admin?
     role == ADMIN_ROLE
   end
+
+  def has_role?(_role)
+    role == _role
+  end
 end

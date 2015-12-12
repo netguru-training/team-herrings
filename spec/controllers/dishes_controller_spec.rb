@@ -84,7 +84,6 @@ RSpec.describe DishesController do
         it_behaves_like 'template rendering action', :new
       end
 
-
       describe 'PUT #update' do
         let!(:dish) { create :dish, name: 'Pizza', weight: 100, vat: 7, price: 10.99 }
         let(:name) { 'Meat' }

@@ -6,7 +6,6 @@
 #  date          :datetime
 #  status        :integer
 #  reject_reason :string
-#  customer_id   :integer
 #  table_id      :integer
 #  user_id       :integer
 #  created_at    :datetime         not null

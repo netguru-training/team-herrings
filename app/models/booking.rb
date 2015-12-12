@@ -6,7 +6,6 @@
 #  date          :datetime
 #  status        :integer
 #  reject_reason :string
-#  customer_id   :integer
 #  table_id      :integer
 #  user_id       :integer
 #  created_at    :datetime         not null
@@ -20,5 +19,5 @@ class Booking < ActiveRecord::Base
   has_one :customer
   accepts_nested_attributes_for :customer
 
-  enum status: [:pending, :rejected, :accepted]
+  enum st: [:pending, :rejected, :accepted]
 end

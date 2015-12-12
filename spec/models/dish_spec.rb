@@ -18,4 +18,12 @@ RSpec.describe Dish, type: :model do
     it { should have_db_column :price }
   end
 
+  describe 'compute netto from price and vat' do
+    let!(:dish) { create :dish, name: 'Pizza', weight: 100, vat: 23, price: 20.99 }
+    it 'computes correct value' do
+      expect(dish.netto_price).to eq 17.07
+    end
+  end
+
+
 end

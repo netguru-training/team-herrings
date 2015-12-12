@@ -1,0 +1,5 @@
+= simple_form_for [:admin, table] do |f|
+  = f.input :places
+  = f.input :location, collection: Table.locations.keys
+  = link_to t('shared.back'), admin_tables_path, class: 'btn btn-default'
+  = f.button :submit

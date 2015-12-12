@@ -2,7 +2,8 @@
   %tr
     %th= dish.name
     %th= dish.weight
-    %th= dish.vat
+    %th #{dish.vat} %
+    %th= dish.net_price
     %th= dish.price
     %th
       =link_to 'Show', dish_path(dish), class: 'btn btn-default'

@@ -1,3 +1,5 @@
+logger = Logger.new(STDOUT)
+
 admins = [
     {
         name: Rails.application.secrets.admin_name,
@@ -25,17 +27,17 @@ guests = [
 
 admins.each do |admin_params|
   admin = FactoryGirl.create(:user, :admin, admin_params)
-  puts 'created user admin ' << admin.email
+  logger.debug 'created user admin ' << admin.email
 end
 
 waiters.each do |waiter_params|
   waiter = FactoryGirl.create(:user, :waiter, waiter_params)
-  puts 'created user waiter ' << waiter.email
+  logger.debug 'created user waiter ' << waiter.email
 end
 
 guests.each do |guest_params|
   guest = FactoryGirl.create(:user, :guest, guest_params)
-  puts 'created user guest ' << guest.email
+  logger.debug 'created user guest ' << guest.email
 end
 
 30.times do
@@ -46,5 +48,5 @@ end
     price: Faker::Number.decimal(2),
   )
 end
-puts 'created thirty random dishes '
+logger.debug 'created thirty random dishes '
 # Environment variables (ENV['...']) can be set in the file .env file.

@@ -35,6 +35,9 @@ en:
     columns:
       first_name: first name
       last_name: last name
+      date: date
+      status: status
+      reject_reason: the reason for rejection
   table_location:
     indoor: 'Indoor'
     outdoor: 'Outdoor'

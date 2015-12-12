@@ -13,11 +13,10 @@
 #
 
 class Booking < ActiveRecord::Base
-  before_validation { |booking| booking.status = :pending }
   validates :date, :status, presence: true
   belongs_to :table
   has_one :customer
   accepts_nested_attributes_for :customer
 
-  enum st: [:pending, :rejected, :accepted]
+  enum status: [:pending, :rejected, :accepted]
 end

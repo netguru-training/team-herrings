@@ -1,4 +1,5 @@
 class DishesController < ApplicationController
+  before_action :authenticate_admin!, only: [:create, :new, :edit, :update, :destroy]
   expose_decorated(:dish, attributes: :dish_params)
   expose_decorated(:dishes)
 

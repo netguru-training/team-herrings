@@ -14,7 +14,7 @@
 class Dish < ActiveRecord::Base
   validates :name, :price, presence: true
 
-  def netto_price
+  def net_price
     (price - (price / (vat + 100) * vat)).round(2)
   end
 end

@@ -12,7 +12,7 @@
           %tr
             %td= table.id
             %td= t(:"table_location.#{table.location}")
-            %td= table.places
+            %td= table.decorate.formatted_places
             %td
               = link_to admin_table_path(table), { class: 'btn btn-default', title: t('shared.show') } do
                 = fa_icon "search"

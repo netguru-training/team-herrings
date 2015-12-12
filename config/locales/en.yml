@@ -47,3 +47,6 @@ en:
       actions: 'Actions'
       places: 'Places'
       location: 'Location'
+  places:
+    one: 1 place
+    other: "%{count} places"

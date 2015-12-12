@@ -4,7 +4,7 @@ class DishesController < ApplicationController
 
   def create
     if dish.save
-      redirect_to dish_path(dish)
+      redirect_to dish_path(dish), notice: I18n.t('shared.created', resource: 'Dish')
     else
       render :new
     end
@@ -15,7 +15,7 @@ class DishesController < ApplicationController
 
   def update
     if dish.save
-      redirect_to dish_path(dish)
+      redirect_to dish_path(dish), notice: I18n.t('shared.updated', resource: 'Dish')
     else
       render :edit
     end
@@ -23,7 +23,7 @@ class DishesController < ApplicationController
 
   def destroy
     dish.destroy!
-    redirect_to dishes_path
+    redirect_to dishes_path, notice: I18n.t('shared.deleted', resource: 'Dish')
   end
 
   private

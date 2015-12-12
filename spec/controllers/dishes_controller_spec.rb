@@ -36,10 +36,10 @@ RSpec.describe DishesController do
     context 'success' do
       it { is_expected.to redirect_to dish_path(controller.dish) }
 
-      # it 'flashes info' do
-      #   subject
-      #   expect(flash[:notice]).to eq I18n.t('shared.created', resource: 'Dish')
-      # end
+      it 'flashes info' do
+        subject
+        expect(flash[:notice]).to eq I18n.t('shared.created', resource: 'Dish')
+      end
 
       it 'creates dish' do
         expect { subject }.to change(Dish, :count).by(1)
@@ -68,10 +68,10 @@ RSpec.describe DishesController do
       context 'success' do
         it { is_expected.to redirect_to dish_path(controller.dish) }
 
-        # it 'flashes info' do
-        #   subject
-        #   expect(flash[:notice]).to eq I18n.t('shared.updated', resource: 'Dish')
-        # end
+        it 'flashes info' do
+          subject
+          expect(flash[:notice]).to eq I18n.t('shared.updated', resource: 'Dish')
+        end
 
         context 'updates dish' do
           subject { -> { put :update, params } }
@@ -95,10 +95,10 @@ RSpec.describe DishesController do
 
       it { is_expected.to redirect_to dishes_path }
 
-      # it 'flashes info' do
-      #   subject
-      #   expect(flash[:notice]).to eq I18n.t('shared.deleted', resource: 'Dishes')
-      # end
+      it 'flashes info' do
+        subject
+        expect(flash[:notice]).to eq I18n.t('shared.deleted', resource: 'Dish')
+      end
 
       it 'destroys dish' do
         expect { subject }.to change(Dish, :count).by(-1)

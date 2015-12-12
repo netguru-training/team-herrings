@@ -16,6 +16,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  name                   :string
+#  role                   :string           default("guest"), not null
 #
 
 FactoryGirl.define do
@@ -23,5 +24,17 @@ FactoryGirl.define do
     name "Test User"
     email "test@example.com"
     password "please123"
+  end
+
+  trait :admin do
+    role User::ADMIN_ROLE
+  end
+
+  trait :waiter do
+    role User::WAITER_ROLE
+  end
+
+  trait :guest do
+    role User::GUEST_ROLE
   end
 end

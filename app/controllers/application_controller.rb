@@ -10,9 +10,6 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin!
     user = authenticate_user!
-    unless user.admin?
-      flash[:error] = 'Allowed only for admins'
-      redirect_to root_path
-    end
+    redirect_to root_path, error: 'Allowed only for admins' if user.admin?
   end
 end

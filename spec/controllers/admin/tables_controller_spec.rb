@@ -3,9 +3,7 @@ require 'rails_helper'
 RSpec.describe Admin::TablesController do
   let(:user) { create :user, :admin }
 
-  before do
-    sign_in(user)
-  end
+  before { sign_in(user) }
 
   describe 'GET #show' do
     let(:table) { create :table }

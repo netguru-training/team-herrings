@@ -1,0 +1,8 @@
+= simple_form_for booking do |f|
+  = f.input :date
+  = f.simple_fields_for :customer do | c |
+    = c.input :first_name
+    = c.input :last_name
+    = c.input :email
+  = link_to t('shared.back'), bookings_path, class: 'btn btn-default'
+  = f.button :submit

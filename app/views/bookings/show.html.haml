@@ -1,0 +1,22 @@
+%table.table.table-condensed
+  %tbody
+    %tr
+      %td= t('booking.columns.first_name')
+      %td= booking.customer.first_name
+    %tr
+      %td= t('booking.columns.last_name')
+      %td= booking.customer.last_name
+    %tr
+      %td= t('booking.columns.date')
+      %td= booking.date
+    %tr
+      %td= t('booking.columns.status')
+      %td= booking.status
+    - if booking.rejected?
+      %tr
+        %td= t('booking.columns.reject_reason')
+        %td= booking.reject_reason
+
+
+
+= link_to t('shared.back'), bookings_path, class: 'btn btn-default'

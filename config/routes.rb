@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :dishes
+
+  resource :bookings
 end

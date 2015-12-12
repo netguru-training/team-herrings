@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin!
     user = authenticate_user!
-    redirect_to root_path, error: 'Allowed only for admins' if user.admin?
+    redirect_to root_path, error: 'Allowed only for admins' unless user.admin?
   end
 end

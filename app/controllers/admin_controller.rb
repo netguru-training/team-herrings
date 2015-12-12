@@ -4,14 +4,4 @@ class AdminController < ApplicationController
   def dashboard
 
   end
-
-  private
-
-  def authenticate_admin!
-    user = authenticate_user!
-    unless user.admin?
-      flash[:error] = 'Allowed only for admins'
-      redirect_to root_path
-    end
-  end
 end

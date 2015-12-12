@@ -19,6 +19,9 @@ test:
 
 production:
   <<: *default
-  database: herrings_app_production
-  password:
+  database: ENV['DATABASE_NAME']
+  host:     ENV['DATABASE_HOST']
+  password: ENV['DATABASE_PASSWORD']
+  port:     ENV['DATABASE_PORT']
   template: template0
+  username: ENV['DATABASE_USERNAME']

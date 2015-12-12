@@ -1,0 +1,10 @@
+= content_for(:admin_nav) do
+  .container
+    %nav.navbar.navbar-default
+      .navbar-header
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li= link_to 'Dashboard', admin_dashboard_path
+            %li= link_to 'Users', admin_users_path
+
+= render template: 'layouts/application'

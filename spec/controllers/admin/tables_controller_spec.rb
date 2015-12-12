@@ -35,7 +35,7 @@ RSpec.describe Admin::TablesController do
     let!(:params) { { table: attributes_for(:table) } }
     subject { post :create, params }
 
-    context 'success' do
+    context 'returns response with success' do
       it { is_expected.to redirect_to admin_table_path(controller.table) }
 
       it 'flashes info' do
@@ -48,7 +48,7 @@ RSpec.describe Admin::TablesController do
       end
     end
 
-    context 'failure' do
+    context 'returns response with failure' do
       include_context 'record save failure'
 
       it_behaves_like 'template rendering action', :new
@@ -64,7 +64,7 @@ RSpec.describe Admin::TablesController do
     end
     subject { put :update, params }
 
-    context 'success' do
+    context 'returns response with success' do
       it { is_expected.to redirect_to admin_table_path(controller.table) }
 
       it 'flashes info' do
@@ -79,7 +79,7 @@ RSpec.describe Admin::TablesController do
       end
     end
 
-    context 'failure' do
+    context 'returns response with failure' do
       include_context 'record save failure'
 
       it_behaves_like 'template rendering action', :edit

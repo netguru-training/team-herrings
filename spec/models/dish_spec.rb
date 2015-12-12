@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: dishes
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  vat        :integer
+#  weight     :integer
+#  price      :float
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe Dish, type: :model do

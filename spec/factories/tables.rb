@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: tables
+#
+#  id         :integer          not null, primary key
+#  places     :integer
+#  location   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 FactoryGirl.define do
   factory :table do
     places { Faker::Number.between(2, 6) }

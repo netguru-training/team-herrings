@@ -16,9 +16,17 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  name                   :string
+#  role                   :string           default("guest"), not null
 #
 
 class User < ActiveRecord::Base
+
+  ROLES = [
+      ADMIN_ROLE = 'admin',
+      WAITER_ROLE = 'waiter',
+      GUEST_ROLE = 'guest'
+  ]
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

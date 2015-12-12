@@ -9,7 +9,7 @@ addons:
 
 script: bundle exec rspec
 deploy:
-  app: team-herrings
+  app: peaceful-dawn-8850
   on:
     repo: netguru-training/team-herrings
   api_key:

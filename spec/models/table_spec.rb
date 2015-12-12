@@ -8,7 +8,6 @@ RSpec.describe Table, type: :model do
   end
 
   describe 'validations' do
-    it { is_expected.to validate_presence_of :name }
     it { is_expected.to validate_presence_of :places }
     it { is_expected.to validate_presence_of :type }
     it { is_expected.to define_enum_for(:type).with([:indoor, :outdoor]) }
@@ -23,7 +22,6 @@ RSpec.describe Table, type: :model do
   end
 
   describe 'database columns' do
-    it { should have_db_column :name }
     it { should have_db_column :places }
     it { should have_db_column :type }
   end

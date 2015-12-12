@@ -1,4 +1,4 @@
 class Dish < ActiveRecord::Base
-  validates_presence_of :name, :price
-  validates_numericality_of :vat
+  validates :name, :price, presence: true
+  validates :vat, numericality: true
 end

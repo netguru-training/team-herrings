@@ -25,3 +25,10 @@ en:
       created: "%{resource} has been created!"
       updated: "%{resource} has been updated!"
       deleted: "%{resource} has been deleted!"
+      date: date
+
+  booking:
+    columns:
+      first_name: first name
+      last_name: last name
+

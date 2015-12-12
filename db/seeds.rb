@@ -35,4 +35,13 @@ guests.each do |guest_params|
   puts 'created user guest ' << guest.email
 end
 
+30.times do
+  Dish.create!(
+    name: Faker::Hipster.word,
+    weight: Faker::Number.between(100, 1000),
+    vat: Faker::Number.between(0, 23),
+    price: Faker::Number.decimal(2),
+  )
+end
+puts 'created thirty random dishes '
 # Environment variables (ENV['...']) can be set in the file .env file.

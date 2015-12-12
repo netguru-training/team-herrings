@@ -1,0 +1,11 @@
+=link_to 'New Dish', new_dish_path, class: 'btn btn-default'
+%table.table.table-condensed
+  %thead
+    %tr
+      %th= 'Name'
+      %th= 'Weight'
+      %th= 'Vat'
+      %th= 'Price'
+      %th= 'Actions'
+  %tbody
+    =render 'dishes'

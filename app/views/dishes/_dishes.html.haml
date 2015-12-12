@@ -1,0 +1,11 @@
+- dishes.each do |dish|
+  %tr
+    %th= dish.name
+    %th= dish.weight
+    %th= dish.vat
+    %th= dish.price
+    %th
+      =link_to 'Show', dish_path(dish), class: 'btn btn-default'
+      =link_to 'Update', edit_dish_path(dish), class: 'btn btn-default'
+      =link_to 'Delete', dish, method: :delete, class: 'btn btn-default'
+

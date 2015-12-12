@@ -12,5 +12,5 @@ Rails.application.routes.draw do
 
   resources :dishes
 
-  resource :bookings
+  resources :bookings
 end

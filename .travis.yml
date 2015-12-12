@@ -16,3 +16,10 @@ deploy:
     secure: OqDQM/CldSZ4g2QqjU/drL9+lDG8ySvdFTBfFM6SlWUhFwAyNLFWOe4MYN4B4NCyvpD8pM228pKGCNUk5tYoEDt3wzMUQQu9iehslp414yWdQChwUEZdGlZrQ9zawfapET0C4DPLWpyDW15ZXZFjEX+aPP3GTzNYbbpNwmXk3L5Kp4lkwAikjjhh0ozfpsi2Uym+OldwUW2vEqMLSVcR0ouPcQ2ljKIyrgsBq4m5FybHcuIcXsOjn0gO5hfwg1/T+VpgCq0zJqdeU1F5mrr3xAbb0O6rVNqI9Z+7NXQY7TUJMVwCA2bGAjHlP8w//BvokbuQAqjUlXGruFAiJ08f5a+Hwy/BvX4VvXopt9M+eGmZ9PCWBBSn2cm3oNFZQop4ZthhMZBnRwi1hC0lU/nGYwjKlGovx6H3W9o9LR6eWvTOJCzFen4802BO2lbt9gxN6zleIdSC2NWoCJ4CJcrkQrP1WtPGS5lIzZgwRB8c62Y+Y/d+vS0nboTAsUUJ1DY6/ZaYPf8wzjokBm8ShgFgeVY74zfnmNxwp8GBEuIcgk+cbS22PDWPKE+GmUpcCJD6mlXMI3wua4AF38i448VVxnYQaxjOKckLvYKC9Btnqln+LkxvCR1naldHFV9y+Ro4936EKKH1pIbiBOo8AgmLZtrE4X5KVEmttN32QmWenHw=
   provider: heroku
   run: 'rake db:migrate'
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/9262508f7ed951e51092
+    on_success: change
+    on_failure: always
+    on_start: never

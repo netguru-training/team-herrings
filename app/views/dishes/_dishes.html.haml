@@ -1,10 +1,10 @@
 - dishes.each do |dish|
   %tr
     %th= dish.name
-    %th= dish.weight
-    %th #{dish.vat} %
-    %th= dish.net_price
-    %th= dish.price
+    %th= dish.weight_with_unit
+    %th= dish.vat_with_percent
+    %th= dish.net_price_with_currency
+    %th= dish.price_with_currency
     %th
       =link_to 'Show', dish_path(dish), class: 'btn btn-default'
       =link_to 'Update', edit_dish_path(dish), class: 'btn btn-default'

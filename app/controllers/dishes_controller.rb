@@ -1,6 +1,6 @@
 class DishesController < ApplicationController
-  expose(:dish, attributes: :dish_params)
-  expose(:dishes)
+  expose_decorated(:dish, attributes: :dish_params)
+  expose_decorated(:dishes)
 
   def create
     if dish.save

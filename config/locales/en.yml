@@ -22,13 +22,25 @@
 en:
   hello: "Hello world"
   shared:
-      created: "%{resource} has been created!"
-      updated: "%{resource} has been updated!"
-      deleted: "%{resource} has been deleted!"
-      date: date
-
+    created: "%{resource} has been created!"
+    updated: "%{resource} has been updated!"
+    deleted: "%{resource} has been deleted!"
+    actions: Actions
+    edit: Edit
+    show: Show
+    delete: Delete
+    back: Back
+    date: date
   booking:
     columns:
       first_name: first name
       last_name: last name
-
+  table_location:
+    indoor: 'Indoor'
+    outdoor: 'Outdoor'
+  table:
+    columns:
+      id: 'ID'
+      actions: 'Actions'
+      places: 'Places'
+      location: 'Location'

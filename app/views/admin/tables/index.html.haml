@@ -1,0 +1,22 @@
+.row
+  .col-md-12
+    %h3 Tables
+    %table.table.table-striped
+      %thead
+        %th= t('table.columns.id')
+        %th= t('table.columns.location')
+        %th= t('table.columns.places')
+        %th= t('table.columns.actions')
+      %tbody
+        - tables.each do |table|
+          %tr
+            %td= table.id
+            %td= t(:"table_location.#{table.location}")
+            %td= table.places
+            %td
+              = link_to admin_table_path(table), { class: 'btn btn-default', title: t('shared.show') } do
+                = fa_icon "search"
+              = link_to edit_admin_table_path(table), { class: 'btn btn-default', title: t('shared.edit') } do
+                = fa_icon "edit"
+              = link_to admin_table_path(table), { method: :delete, class: 'btn btn-default', title: t('shared.delete') } do
+                = fa_icon "times"

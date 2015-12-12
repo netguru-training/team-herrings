@@ -1,0 +1,10 @@
+%table.table.table-condensed
+  %tbody
+    %tr
+      %td= "#{t('table.columns.places')}:"
+      %td= table.places
+    %tr
+      %td= "#{t('table.columns.location')}:"
+      %td= table.location
+
+= link_to t('shared.back'), admin_tables_path, class: 'btn btn-default'

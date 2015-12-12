@@ -1,5 +1,6 @@
 admins = [
     {
+        name: Rails.application.secrets.admin_name,
         email: Rails.application.secrets.admin_email,
         password: Rails.application.secrets.admin_password,
         password_confirmation: Rails.application.secrets.admin_password
@@ -7,6 +8,7 @@ admins = [
 ]
 waiters = [
     {
+        name: Rails.application.secrets.waiter_name,
         email: Rails.application.secrets.waiter_email,
         password: Rails.application.secrets.waiter_password,
         password_confirmation: Rails.application.secrets.waiter_password
@@ -14,6 +16,7 @@ waiters = [
 ]
 guests = [
     {
+        name: Rails.application.secrets.guest_name,
         email: Rails.application.secrets.guest_email,
         password: Rails.application.secrets.guest_password,
         password_confirmation: Rails.application.secrets.guest_password

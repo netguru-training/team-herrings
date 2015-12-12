@@ -10,7 +10,6 @@
   %body
     %header
       = render 'layouts/navigation'
-      = yield(:admin_nav) if content_for?(:admin_nav)
     %main{:role => "main"}
       .container
         = render 'layouts/messages'

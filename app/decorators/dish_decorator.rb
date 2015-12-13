@@ -7,11 +7,11 @@ class DishDecorator < Draper::Decorator
   end
 
   def price_with_currency
-    number_to_currency(object.price, locale: :pl)
+    number_to_currency(object.price)
   end
 
   def net_price_with_currency
-    number_to_currency(object.net_price, locale: :pl)
+    number_to_currency(object.net_price)
   end
 
   def weight_with_unit

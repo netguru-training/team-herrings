@@ -14,11 +14,17 @@ Rails.application.routes.draw do
 
   resources :dishes
 
-  resources :bookings
-
   resources :orders do
     member do
       post :add_dish
+    end
+  end
+
+  resources :bookings do
+    collection { get :pending }
+    member do
+      put :accept
+      put :reject
     end
   end
 end

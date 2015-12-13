@@ -32,6 +32,8 @@ en:
     back: Back
     date: date
   booking:
+    rejected: "Booking for %{date} has been rejected!"
+    accepted: "Booking for %{date} has been accepted!"
     columns:
       first_name: First name
       last_name: Last name
@@ -39,6 +41,9 @@ en:
       date: Date Time
       status: Status
       reject_reason: The reason for rejection
+    buttons:
+      accept: Accept
+      reject: Reject
   table_location:
     indoor: 'Indoor'
     outdoor: 'Outdoor'

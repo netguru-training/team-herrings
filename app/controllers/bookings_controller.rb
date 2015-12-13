@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :edit, :index]
+  before_action :authenticate_user!, only: [:show, :edit, :index, :accept, :reject]
 
   expose_decorated(:bookings) { fetch_bookings }
   expose(:booking, attributes: :booking_params)
@@ -7,12 +7,15 @@ class BookingsController < ApplicationController
   expose(:booking_customer) { Customer.new }
 
   def new
+    self.booking = Booking.new
     booking.build_customer
   end
 
   def create
+    self.booking = Booking.new(booking_params)
     if booking.save
-      redirect_to root_path, notice: I18n.t('shared.created', resource: 'Booking')
+      sign_in(:user, User.find(booking.user_id))
+      user_redirector
     else
       render :new
     end
@@ -49,7 +52,15 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date, :status, customer_attributes: [:first_name, :last_name, :email])
+    params.require(:booking).permit(:date, :status, :password, :password_confirmation, customer_attributes: [:first_name, :last_name, :email])
+  end
+  
+  def user_redirector    
+    if current_user && current_user.admin?
+      redirect_to booking_path(booking), notice: I18n.t('shared.created', resource: 'Booking')
+    else      
+      redirect_to bookings_path, notice: I18n.t('booking.created')
+    end           
   end
 
   def booking_reject_params
@@ -57,6 +68,9 @@ class BookingsController < ApplicationController
   end
 
   def fetch_bookings
-    params[:status] == 'pending' ? Booking.pending.order('date desc') : Booking.order('date asc')
+#    if user_signed_in?
+      _bookings = current_user.admin? ? Booking : current_user.bookings
+      params[:status] == 'pending' ? _bookings.pending.order('date desc') : _bookings.order('date asc')
+#    end
   end
 end

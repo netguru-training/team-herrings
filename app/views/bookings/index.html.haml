@@ -1,1 +1,5 @@
-= render 'table'
+- if current_user.bookings.any?
+  = render 'table'
+- else
+  %p 
+    You don't have any bookings yet.

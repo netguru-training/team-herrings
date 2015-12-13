@@ -19,6 +19,8 @@ gem 'simple_form'
 gem 'uglifier', '>= 1.3.0'
 gem 'sprockets-rails'
 gem 'bootswatch-rails'
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
 
 group :development do
   gem 'annotate'

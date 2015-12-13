@@ -1,0 +1,11 @@
+%tr
+  %td= table.id
+  %td= t(:"table_location.#{table.location}")
+  %td= table.decorate.formatted_places
+  %td
+    = link_to admin_table_path(table), { class: 'btn btn-default', title: t('shared.show') } do
+      = fa_icon "search"
+    = link_to edit_admin_table_path(table), { class: 'btn btn-default', title: t('shared.edit') } do
+      = fa_icon "edit"
+    = link_to admin_table_path(table), { method: :delete, class: 'btn btn-default', title: t('shared.delete') } do
+      = fa_icon "times"

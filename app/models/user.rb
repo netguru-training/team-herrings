@@ -27,6 +27,9 @@ class User < ActiveRecord::Base
       GUEST_ROLE = 'guest'
   ]
 
+  validates :name, presence: true, length: { minimum: 3 }
+  validates :role, inclusion: { in: ROLES }
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

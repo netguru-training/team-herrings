@@ -16,5 +16,9 @@ Rails.application.routes.draw do
 
   resources :bookings
 
-  resources :orders
+  resources :orders do
+    member do
+      post :add_dish
+    end
+  end
 end

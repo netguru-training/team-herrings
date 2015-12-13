@@ -1,0 +1,7 @@
+- dishes.each do |dish|
+  %tr
+    %th= dish.name
+    %th= dish.weight
+    %th= dish.price
+    %th
+      =link_to 'Add', add_dish_order_path(id: order.id, dish_id: dish.id), method: :post, class: 'btn btn-default'

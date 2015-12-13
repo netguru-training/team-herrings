@@ -15,3 +15,24 @@
 
 = link_to 'Back', orders_path, class: 'btn btn-default'
 
+%table.table.table-condensed
+  %thead
+    %tr
+      %th= 'Name'
+      %th= 'Weight'
+      %th= 'Price'
+  %tbody
+    - order.dishes.each do |d|
+      %tr
+        %th= d.name
+        %th= d.weight
+        %th= d.price
+
+%table.table.table-condensed
+  %thead
+    %tr
+      %th= 'Name'
+      %th= 'Weight'
+      %th= 'Price'
+  %tbody
+    = render 'add_dish_form'

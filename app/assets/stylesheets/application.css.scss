@@ -13,8 +13,7 @@
  *= require font-awesome
  *= require_tree .
  *= require_self
- */
+ *= require flatly/loader
+ *= require flatly/bootswatch
+*/
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "overrides";

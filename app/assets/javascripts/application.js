@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-sprockets
+//= require flatly/loader
+//= require flatly/bootswatch
 //= require_tree .

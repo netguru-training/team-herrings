@@ -33,12 +33,12 @@ en:
     date: date
   booking:
     columns:
-      first_name: first name
-      last_name: last name
-      email: email
-      date: date
-      status: status
-      reject_reason: the reason for rejection
+      first_name: First name
+      last_name: Last name
+      email: Email
+      date: Date Time
+      status: Status
+      reject_reason: The reason for rejection
   table_location:
     indoor: 'Indoor'
     outdoor: 'Outdoor'

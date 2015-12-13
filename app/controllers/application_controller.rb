@@ -23,4 +23,9 @@ class ApplicationController < ActionController::Base
     user = authenticate_user!
     redirect_to root_path, error: 'Allowed only for admins' unless user.admin?
   end
+
+  def authenticate_waiter!
+    user = authenticate_user!
+    redirect_to root_path, error: 'Allowed only for admins' unless user.waiter?
+  end
 end

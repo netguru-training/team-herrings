@@ -41,6 +41,10 @@ class User < ActiveRecord::Base
     role == ADMIN_ROLE
   end
 
+  def waiter?
+    (role == ADMIN_ROLE) || (role == WAITER_ROLE)
+  end
+
   def has_role?(_role)
     role == _role
   end

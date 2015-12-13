@@ -49,6 +49,13 @@ end
   )
 end
 
+30.times do
+  Table.create!(
+    places: rand(2..10),
+    location: Table.locations.keys.sample
+  )
+end
+
 TIME_FROM = Time.zone.parse('2015-12-13 9:00:00 UTC')
 TIME_TO = Time.zone.parse('2016-02-13 9:00:00 UTC')
 

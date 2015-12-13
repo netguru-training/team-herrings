@@ -10,7 +10,6 @@ class OrdersController < ApplicationController
   expose(:statuses) { Order.statuses.keys }
 
   def create
-    binding.pry
     if order.save
       redirect_to order_path(order), notice: I18n.t('shared.created', resource: 'Dish')
     else

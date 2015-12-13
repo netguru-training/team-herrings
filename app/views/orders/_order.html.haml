@@ -21,12 +21,14 @@
       %th= 'Name'
       %th= 'Weight'
       %th= 'Price'
+      %th= 'Count'
   %tbody
-    - order.dishes.each do |d|
+    - order.dishes_orders.each do |d|
       %tr
-        %th= d.name
-        %th= d.weight
-        %th= d.price
+        %th= d.dish.name
+        %th= d.dish.weight
+        %th= d.dish.price
+        %th= d.count
 
 %table.table.table-condensed
   %thead

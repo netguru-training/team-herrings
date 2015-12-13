@@ -45,8 +45,9 @@ class OrdersController < ApplicationController
   end
 
   def add_dish
-    self.order = Order.find(params[:id])
-    if order.dishes << dish
+    order = Order.find(params[:id])
+    dish_order = order.dishes_orders.find_or_create_by(dish: dish)
+    if dish_order.increment!(:count)
       redirect_to order_path(order), notice: I18n.t('shared.updated', resource: 'Dish')
     else
       render :show

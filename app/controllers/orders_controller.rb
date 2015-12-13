@@ -25,8 +25,8 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render :pdf => "orders",   # Excluding ".pdf" extension.
-        :layout => 'pdf' # uses views/layouts/pdf.haml
+        render pdf: 'orders',
+               layout: 'pdf' # uses views/layouts/pdf.haml
       end
     end
   end

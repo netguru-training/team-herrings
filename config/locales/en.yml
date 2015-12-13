@@ -35,6 +35,7 @@ en:
     columns:
       first_name: first name
       last_name: last name
+      email: email
       date: date
       status: status
       reject_reason: the reason for rejection

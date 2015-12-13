@@ -1,4 +1,4 @@
-= simple_form_for booking do |f|
+= simple_form_for [:admin, booking] do |f|
   = f.error_notification
   = f.input :date
   - if current_user.nil?

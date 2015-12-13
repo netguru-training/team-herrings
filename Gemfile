@@ -25,6 +25,7 @@ group :development do
   gem 'better_errors'
   gem 'foreman'
   gem 'html2haml'
+  gem 'letter_opener'
   gem 'rails_layout'
   gem 'spring'
   gem 'spring-commands-rspec'

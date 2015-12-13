@@ -1,0 +1,17 @@
+%table.table.table-condensed
+  %tbody
+    %tr
+      %td= 'Id'
+      %td= order.id
+    %tr
+      %td= 'Waiter'
+      %td= order.user.name
+    %tr
+      %td= 'Table'
+      %td= order.table
+    %tr
+      %td= 'Table location'
+      %td= order.table.location
+
+= link_to 'Back', orders_path, class: 'btn btn-default'
+

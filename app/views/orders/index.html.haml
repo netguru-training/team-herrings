@@ -1,0 +1,10 @@
+=link_to 'New Order', new_order_path, class: 'btn btn-default'
+%table.table.table-condensed
+  %thead
+    %tr
+      %th= 'id'
+      %th= 'Waiter'
+      %th= 'Table'
+      %th= 'Location'
+  %tbody
+    =render 'orders'

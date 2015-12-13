@@ -1,0 +1,11 @@
+- orders.each do |order|
+  %tr
+    %th= order.id
+    %th= order.user.name
+    %th= order.table
+    %th= order.table.location
+    %th
+      =link_to 'Show', order_path(order), class: 'btn btn-default'
+      =link_to 'Edit', edit_order_path(order), class: 'btn btn-default'
+      =link_to 'Delete', order, method: :delete, class: 'btn btn-default'
+

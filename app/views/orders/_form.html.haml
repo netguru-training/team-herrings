@@ -1,0 +1,6 @@
+= simple_form_for order do |f|
+  = f.input :user_id, collection: users
+  = f.input :table_id, collection: tables
+  = f.input :status, collection: statuses
+  = link_to 'Back', orders_path, class: 'btn btn-default'
+  = f.button :submit

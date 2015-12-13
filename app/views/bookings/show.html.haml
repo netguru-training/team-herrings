@@ -16,7 +16,15 @@
       %tr
         %td= t('booking.columns.reject_reason')
         %td= booking.reject_reason
-
-
-
+- if booking.pending?
+  = filtered_form_for booking, url: reject_booking_path(booking), method: 'put', display_only: [:reject_reason] do |f|
+    .form-inputs
+      = f.input :reject_reason
+      = link_to accept_booking_path(booking), { class: 'btn btn-default btn-success', title: t('booking.buttons.accept'), method: 'put' } do
+        = fa_icon "thumbs-up"
+        = t('booking.buttons.accept')
+      = button_tag(type: 'submit', class: 'btn btn-default btn-danger') do
+        = fa_icon "thumbs-down"
+        = t('booking.buttons.reject')
+.form-group
 = link_to t('shared.back'), bookings_path, class: 'btn btn-default'

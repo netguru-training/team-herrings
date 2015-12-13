@@ -48,5 +48,22 @@ end
     price: Faker::Number.decimal(2),
   )
 end
+
+TIME_FROM = Time.zone.parse('2015-12-13 9:00:00 UTC')
+TIME_TO = Time.zone.parse('2016-02-13 9:00:00 UTC')
+
+10.times do
+  first_name = Faker::Name.first_name
+  status = rand(0..2)
+  Booking.create!(
+    date: rand(TIME_FROM..TIME_TO),
+    status: rand(0..2),
+    customer: Customer.new(first_name: first_name,
+                           last_name: Faker::Name.last_name,
+                           email: Faker::Internet.email(first_name)),
+    reject_reason: status == 1 ? Faker::Lorem.sentence(3) : nil
+  )
+end
+
 logger.debug 'created thirty random dishes '
 # Environment variables (ENV['...']) can be set in the file .env file.

@@ -17,9 +17,8 @@ gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem 'uglifier', '>= 1.3.0'
-gem 'therubyracer'
-gem 'twitter-bootswatch-rails', '~> 3.3.4'
-gem 'twitter-bootswatch-rails-helpers'
+gem 'sprockets-rails'
+gem 'bootswatch-rails'
 
 group :development do
   gem 'annotate'

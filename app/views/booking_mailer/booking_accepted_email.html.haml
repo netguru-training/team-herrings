@@ -1,0 +1,13 @@
+%h1 Your table booking has been accepted!
+
+%h3 Table booking details:
+
+%p
+  %strong= t('booking.columns.date')
+  = @booking.decorate.reservation_date
+%p
+  %strong= t('table.columns.places')
+  = @booking.table.places
+%p
+  %strong= t('table.columns.location')
+  = @booking.table.location

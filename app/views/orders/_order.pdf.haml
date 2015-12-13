@@ -21,20 +21,22 @@
       %th= 'Name'
       %th= 'Net price'
       %th= 'Gross price'
+      %th= 'Count'
   %tbody
-    - order.dishes.each do |d|
+    - order.dishes_orders.each do |d|
       %tr
-        %td= d.name
-        %td= d.net_price
-        %td= d.price
+        %td= d.dish.name
+        %td= d.dish.decorate.net_price_with_currency
+        %td= d.dish.decorate.price_with_currency
+        %td= d.count
 
 <br />
 %table.table.table-condensed
   %tbody
     %tr
-      %th= 'Netto sum'
-      %td= sprintf("%.2f", order.dishes.inject(0.0) { |sum, o| sum + o.net_price})
+      %th= 'Net sum'
+      %td= number_to_currency(order.dishes_orders.inject(0.0) { |sum, o| sum + o.dish.net_price}, precision: 2)
     %tr
       %th= 'Gross sum'
-      %td= sprintf("%.2f", order.dishes.inject(0.0) { |sum, o| sum + o.price})
+      %td= number_to_currency(order.dishes_orders.inject(0.0) { |sum, o| sum + o.dish.price}, precision: 2)
 

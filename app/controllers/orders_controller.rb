@@ -26,6 +26,7 @@ class OrdersController < ApplicationController
       format.html
       format.pdf do
         render pdf: 'orders',
+               encoding: 'utf8',
                layout: 'pdf' # uses views/layouts/pdf.haml
       end
     end

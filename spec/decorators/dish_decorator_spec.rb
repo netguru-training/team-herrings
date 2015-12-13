@@ -10,12 +10,20 @@ RSpec.describe DishDecorator do
 
   describe 'price_with_currency' do
     subject { dish.decorate.price_with_currency }
-    it { is_expected.to eq '20.99 PLN' }
+    it 'return value with locale currency' do
+      I18n.locale = 'pl'
+      is_expected.to eq "20,99 #{I18n.t('number.currency.format.unit')}"
+      I18n.locale = I18n.default_locale
+    end
   end
 
   describe 'net_price_with_currency' do
     subject { dish.decorate.net_price_with_currency }
-    it { is_expected.to eq '17.07 PLN' }
+    it 'return value with locale currency' do
+      I18n.locale = 'pl'
+      is_expected.to eq "17,07 #{I18n.t('number.currency.format.unit')}"
+      I18n.locale = I18n.default_locale
+    end
   end
 
   describe 'weight_with_unit' do

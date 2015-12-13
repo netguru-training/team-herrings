@@ -1,6 +1,7 @@
 .row
   .col-md-12
     %h3 Tables
+    %p= link_to 'New Table', new_admin_table_path, class: 'btn btn-default'
     %table.table.table-striped
       %thead
         %th= t('table.columns.id')

@@ -1,17 +1,19 @@
 %table.table.table-condensed
   %tbody
     %tr
-      %td= 'Id'
+      %th= 'Id'
       %td= order.id
     %tr
-      %td= 'Waiter'
+      %th= 'Waiter'
       %td= order.user.name
     %tr
-      %td= 'Table'
+      %th= 'Table'
       %td= order.table
     %tr
-      %td= 'Date of creation'
+      %th= 'Date of creation'
       %td= order.created_at
+
+<br />
 
 %table.table.table-condensed
   %thead
@@ -22,16 +24,17 @@
   %tbody
     - order.dishes.each do |d|
       %tr
-        %th= d.name
-        %th= d.net_price
-        %th= d.price
+        %td= d.name
+        %td= d.net_price
+        %td= d.price
 
-
+<br />
 %table.table.table-condensed
   %tbody
     %tr
-      %td= 'Gross sum'
-      %td= sprintf("%.2f", order.dishes.inject(0.0) { |sum, o| sum + o.price})
-    %tr
-      %td= 'Netto sum'
+      %th= 'Netto sum'
       %td= sprintf("%.2f", order.dishes.inject(0.0) { |sum, o| sum + o.net_price})
+    %tr
+      %th= 'Gross sum'
+      %td= sprintf("%.2f", order.dishes.inject(0.0) { |sum, o| sum + o.price})
+

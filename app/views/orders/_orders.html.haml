@@ -6,6 +6,7 @@
     %th= order.table.location
     %th
       =link_to 'Show', order_path(order), class: 'btn btn-default'
+      =link_to 'PDF', order_path(order, format: :pdf), class: 'btn btn-default'
       =link_to 'Edit', edit_order_path(order), class: 'btn btn-default'
       =link_to 'Delete', order, method: :delete, class: 'btn btn-default'
 

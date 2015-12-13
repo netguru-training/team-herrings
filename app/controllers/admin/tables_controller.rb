@@ -1,6 +1,6 @@
 module Admin
   class TablesController < AdminController
-    expose(:tables) { Table.all }
+    expose(:tables) { Table.order(:id) }
     expose(:table, attributes: :table_params)
 
     def create

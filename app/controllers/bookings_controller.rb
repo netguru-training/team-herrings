@@ -18,6 +18,14 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    if booking.save
+      redirect_to booking_path(booking), notice: I18n.t('shared.updated', resource: 'Student')
+    else
+      render :edit
+    end
+  end
+
   private
 
   def booking_params

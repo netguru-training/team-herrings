@@ -25,7 +25,7 @@ RSpec.describe Booking, type: :model do
 
   describe 'scopes' do
     let(:pending_booking) { create :booking, :pending }
-    subject(:bookings) { Booking.pending }
+    subject(:bookings) { described_class.pending }
 
     it 'returns only pending bookings' do
       expect(bookings).to include(pending_booking)

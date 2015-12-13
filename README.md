@@ -1,53 +1,64 @@
-Herrings App
-================
+# Herrings App
 ![Travis status](https://travis-ci.org/netguru-training/team-herrings.svg?branch=master)
-
 [![Join the chat at https://gitter.im/netguru-training/team-herrings](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/netguru-training/team-herrings?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+## :hash: Description
 
-Rails Composer is supported by developers who purchase our RailsApps tutorials.
+## :closed_lock_with_key: Technology
 
-Problems? Issues?
------------
+| Name |  Version |
+| :--: | :---: |
+| [Ruby](https://www.ruby-lang.org) | 2.2.3 |
+| [Ruby on Rails](http://www.rubyonrails.org/) | 4.2.5 |
+| [PostgreSQL](http://www.postgresql.org/) | 9.4.4 |
+| [Bootstrap](https://github.com/twbs/bootstrap-sass) | 3.3.6 |
+| [Rspec](https://github.com/rspec/rspec-rails) | 3.4.1 |
 
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
+## :hammer: Setup
 
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
+### :information_source: Gems
 
-If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
+Run `bundle install` before you continue.
 
-Ruby on Rails
--------------
+### :elephant: Setup PostgreSQL database
 
-This application requires:
+You can follow the instructions on [PostgreSQL site](http://www.postgresql.org/download/) or use Homebrew.
 
-- Ruby 2.2.3
-- Rails 4.2.5
+Create `config/database.yml`.
 
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
+```
+cp config/database.yml.sample config/database.yml
+```
 
-Getting Started
----------------
+Create databases (development and test):
 
-Documentation and Support
--------------------------
+```bash
+rake db:create
+rake db:schema:load
+rake db:seed
+```
 
-Issues
--------------
+### :pencil: Default configuration
 
-Similar Projects
-----------------
+Use `config/secrets.yml`
 
-Contributing
-------------
+Ask developer about credentials.
 
-Credits
--------
+### :up: Start application
 
-License
--------
+Before you start app be sure that PostgreSQL is already running. Then start Rails server on default port.
+
+```bash
+rails server
+```
+
+### :vertical_traffic_light: Testing
+
+We use `Rspec` for testing. To execute all tests please use following command:
+
+```
+rspec
+```
+
+Please remember about checking your changes in the code this way.

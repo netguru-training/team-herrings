@@ -66,3 +66,6 @@ en:
         significant: false
         strip_insignificant_zeros: true
         unit: zł
+  activerecord:
+    errors:
+      reject_reason_present: The reason of rejection should be present.

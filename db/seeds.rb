@@ -74,5 +74,19 @@ tables = Table.all
   )
 end
 
+10.times do
+  first_name = Faker::Name.first_name
+  status = 0
+  Booking.create!(
+    date: rand(TIME_FROM..TIME_TO),
+    status: 0,
+    table: tables.sample,
+    customer: Customer.new(first_name: first_name,
+                           last_name: Faker::Name.last_name,
+                           email: Faker::Internet.email(first_name)),
+    reject_reason: status == 1 ? Faker::Lorem.sentence(3) : nil
+  )
+end
+
 logger.debug 'created thirty random dishes '
 # Environment variables (ENV['...']) can be set in the file .env file.

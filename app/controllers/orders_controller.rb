@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
 
   expose(:tables)
   expose(:dishes)
-  expose(:dish) { Dish.find(params[:dish_id])}
+  expose(:dish) { Dish.find(params[:dish_id]) }
   expose(:users) { User.where(role: 'waiter') }
   expose(:order, attributes: :order_params)
   expose(:orders)
@@ -44,7 +44,6 @@ class OrdersController < ApplicationController
   end
 
   def change_dish_count
-
   end
 
   private

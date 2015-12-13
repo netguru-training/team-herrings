@@ -21,6 +21,16 @@ class OrdersController < ApplicationController
   def edit
   end
 
+  def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "orders",   # Excluding ".pdf" extension.
+        :layout => 'pdf' # uses views/layouts/pdf.haml
+      end
+    end
+  end
+
   def update
     if order.save
       redirect_to order_path(order), notice: I18n.t('shared.updated', resource: 'Order')

@@ -69,7 +69,7 @@ class Admin::BookingsController < AdminController
   end
 
   def fetch_bookings
-      _bookings = current_user.admin? ? Booking.all : current_user.bookings
+      _bookings = current_user.admin? ? Booking.all.includes(:customer) : current_user.bookings
       params[:status] == 'pending' ? _bookings.pending.order('date desc') : _bookings.order('date asc')
   end
 end

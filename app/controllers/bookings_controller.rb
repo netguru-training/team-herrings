@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
 
   def update
     if booking.save
-      redirect_to booking_path(booking), notice: I18n.t('shared.updated', resource: 'Student')
+      redirect_to booking_path(booking), notice: I18n.t('shared.updated', resource: 'Booking')
     else
       render :edit
     end

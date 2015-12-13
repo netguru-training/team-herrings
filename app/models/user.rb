@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
       GUEST_ROLE = 'guest'
   ]
 
-  validates :name, presence: true, length: { minimum: 3 }
+  validates :name, presence: true, length: { minimum: 3, allow_blank: true }
   validates :role, inclusion: { in: ROLES }
   
   # Include default devise modules. Others available are:

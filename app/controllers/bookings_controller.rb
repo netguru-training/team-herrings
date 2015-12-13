@@ -1,8 +1,10 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :edit, :index]
   expose(:bookings)
   expose(:booking, attributes: :booking_params)
   expose(:booking_tables) { Table.all }
   expose(:booking_customer) { Customer.new }
+  expose_decorated(:bookings)
 
   def new
     booking.build_customer
@@ -10,7 +12,7 @@ class BookingsController < ApplicationController
 
   def create
     if booking.save
-      redirect_to booking_path(booking), notice: I18n.t('shared.created', resource: 'Booking')
+      redirect_to root_path, notice: I18n.t('shared.created', resource: 'Booking')
     else
       render :new
     end

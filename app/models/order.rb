@@ -3,7 +3,10 @@ class Order < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :dishes
 
-  validates :table, :user, presence:true
+  enum statuses: [:created, :delivered, :paid]
+
+  validates :table, :user, :status, presence:true
+  validates :status, inclusion: { in: Order.statuses.keys }
   validate :verify_user_is_waiter
 
   private

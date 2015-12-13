@@ -1,7 +1,8 @@
 FactoryGirl.define do
   factory :order do
     user { create(:user, :waiter) }
-    dishs { create_list(:dish, 5) }
+    dishes { create_list(:dish, 5) }
     table { create(:table) }
+    status { 'delivered' }
   end
 end

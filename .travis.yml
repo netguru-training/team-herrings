@@ -7,7 +7,10 @@ before_script:
 addons:
   postgresql: '9.3'
 
-script: bundle exec rspec
+script:
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec
 deploy:
   app: peaceful-dawn-8850
   on:

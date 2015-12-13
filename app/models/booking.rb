@@ -18,5 +18,7 @@ class Booking < ActiveRecord::Base
   has_one :customer
   accepts_nested_attributes_for :customer
 
+  scope :pending, -> { where(status: statuses[:pending]) }
+
   enum status: [:pending, :rejected, :accepted]
 end

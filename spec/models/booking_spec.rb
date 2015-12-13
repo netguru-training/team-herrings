@@ -22,4 +22,13 @@ RSpec.describe Booking, type: :model do
     it { should have_db_column :reject_reason }
     it { should have_db_column :user_id }
   end
+
+  describe 'scopes' do
+    let(:pending_booking) { create :booking, :pending }
+    subject(:bookings) { Booking.pending }
+
+    it 'returns only pending bookings' do
+      expect(bookings).to include(pending_booking)
+    end
+  end
 end

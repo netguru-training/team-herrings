@@ -17,8 +17,12 @@ FactoryGirl.define do
     date '2015-12-12 10:48:44'
     status 1
     reject_reason 'MyString'
-    customer_id 1
-    table_id 1
+    customer
+    table
     user_id 1
+
+    trait :pending do
+      status :pending
+    end
   end
 end

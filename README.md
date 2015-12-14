@@ -7,6 +7,8 @@
 
 Simple application for management of your own restaurant! Create menu and tables, manage your rooms, enable bookings by guests. Don't waste more time for those simple things.
 
+https://peaceful-dawn-8850.herokuapp.com/
+
 ## :closed_lock_with_key: Technology
 
 | Name |  Version |

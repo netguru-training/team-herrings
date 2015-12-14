@@ -15,11 +15,9 @@
 FactoryGirl.define do
   factory :booking do
     date '2015-12-12 10:48:44'
-    status 1
-    reject_reason 'MyString'
     customer
     table
-    user_id 1
+    user
 
     trait :pending do
       status :pending

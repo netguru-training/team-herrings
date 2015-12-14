@@ -1,11 +1,17 @@
 %table.table.table-condensed
   %tbody
     %tr
+      %td= "User"
+      %td= booking.user_name
+    %tr
+      %td= "Table"
+      %td= booking.table
+    %tr
       %td= t('booking.columns.first_name')
-      %td= booking.customer.first_name
+      %td= booking.customer_first_name
     %tr
       %td= t('booking.columns.last_name')
-      %td= booking.customer.last_name
+      %td= booking.customer_last_name
     %tr
       %td= t('booking.columns.date')
       %td= booking.date
@@ -27,4 +33,5 @@
         = fa_icon "thumbs-down"
         = t('booking.buttons.reject')
 .form-group
-= link_to t('shared.back'), admin_bookings_path, class: 'btn btn-default'
+  = link_to t('shared.edit'), edit_admin_booking_path(booking), class: 'btn btn-default'
+  = link_to t('shared.back'), admin_bookings_path, class: 'btn btn-link'

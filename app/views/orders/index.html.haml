@@ -1,10 +1,17 @@
-=link_to 'New Order', new_order_path, class: 'btn btn-default'
-%table.table.table-condensed
-  %thead
-    %tr
-      %th= 'id'
-      %th= 'Waiter'
-      %th= 'Table'
-      %th= 'Location'
-  %tbody
-    =render 'orders'
+.row
+  .col-md-12
+    =link_to 'New Order', new_order_path, class: 'btn btn-default'
+.row
+  .col-md-3
+    %h1 Orders
+  .col-md-9
+    %table.table.table-condensed
+      %thead
+        %tr
+          %th= 'id'
+          %th= 'Waiter'
+          %th= 'Table'
+          %th= 'Location'
+          %th= 'Status'
+      %tbody
+        =render 'orders'

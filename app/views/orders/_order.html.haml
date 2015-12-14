@@ -1,40 +1,49 @@
-%table.table.table-condensed
-  %tbody
-    %tr
-      %td= 'Id'
-      %td= order.id
-    %tr
-      %td= 'Waiter'
-      %td= order.user.name
-    %tr
-      %td= 'Table'
-      %td= order.table
-    %tr
-      %td= 'Table location'
-      %td= order.table.location
+.row
+  .col-md-12
+    .well
+      = link_to 'Back', orders_path, class: 'btn btn-default'
+      = link_to 'Edit', edit_order_path(order), class: 'btn btn-default'
+      = link_to 'Print Receipt', order_path(order, format: :pdf), class: 'btn btn-default pull-right'
 
-= link_to 'Back', orders_path, class: 'btn btn-default'
+.row
+  .col-md-4
+    .panel.panel-primary
+      .panel-heading
+        .h3.panel-title Order Summary
+      .panel-body
+        .col-md-6 Id
+        .col-md-6= order.id
+        .col-md-6 Waiter
+        .col-md-6= order.user.name
+        .col-md-6 Table
+        .col-md-6= order.table
+        .col-md-6 Location
+        .col-md-6= order.table.location
 
-%table.table.table-condensed
-  %thead
-    %tr
-      %th= 'Name'
-      %th= 'Weight'
-      %th= 'Price'
-      %th= 'Count'
-  %tbody
-    - order.dishes_orders.each do |d|
-      %tr
-        %th= d.dish.name
-        %th= d.dish.weight
-        %th= d.dish.price
-        %th= d.count
+  .col-md-8
+    .well
+      %table.table.table-condensed
+        %thead
+          %tr
+            %th= 'Name'
+            %th= 'Weight'
+            %th= 'Price'
+            %th= 'Count'
+        %tbody
+          - order.dishes_orders.each do |d|
+            %tr
+              %th= d.dish.name
+              %th= d.dish.weight
+              %th= d.dish.price
+              %th= d.count
 
-%table.table.table-condensed
-  %thead
-    %tr
-      %th= 'Name'
-      %th= 'Weight'
-      %th= 'Price'
-  %tbody
-    = render 'add_dish_form'
+.row
+  .col-md-12
+    %table.table.table-condensed
+      %thead
+        %tr
+          %th= 'Name'
+          %th= 'Weight'
+          %th= 'Price'
+      %tbody
+        = render 'add_dish_form'

@@ -4,7 +4,7 @@
 #
 #  id            :integer          not null, primary key
 #  date          :datetime
-#  status        :integer
+#  status        :integer          default(0)
 #  reject_reason :string
 #  table_id      :integer
 #  user_id       :integer

@@ -1,7 +1,8 @@
-= simple_form_for dish do |f|
+= simple_form_for [:admin, dish] do |f|
   = f.input :name
   = f.input :weight
   = f.input :vat
   = f.input :price
-  = link_to 'Back', dishes_path, class: 'btn btn-default'
+
+  = link_to 'Back', :back, class: 'btn btn-default'
   = f.button :submit

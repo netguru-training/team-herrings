@@ -1,0 +1,11 @@
+- dishes.each do |dish|
+  %tr
+    %th= dish.name
+    %th= dish.weight_with_unit
+    %th= dish.vat_with_percent
+    %th= dish.net_price_with_currency
+    %th= dish.price_with_currency
+    %th
+      = link_to 'Show', admin_dish_path(dish), class: 'btn btn-default'
+      = link_to 'Update', edit_admin_dish_path(dish), class: 'btn btn-default'
+      = link_to 'Delete', admin_dish_path(dish), method: :delete, class: 'btn btn-default'

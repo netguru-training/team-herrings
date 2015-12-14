@@ -1,3 +1,5 @@
+= link_to 'New Dish', new_admin_dish_path, class: 'btn btn-default'
+
 %table.table.table-striped
   %thead
     %tr
@@ -6,4 +8,7 @@
       %th= 'Vat'
       %th= 'Net Price'
       %th= 'Price'
-  %tbody= render 'dishes'
+      %th= 'Actions'
+
+  %tbody
+    = render 'dishes'

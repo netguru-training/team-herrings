@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-
   devise_for :users
+
+  root to: 'visitors#index'
 
   get 'admin' => 'admin#dashboard'
 
   namespace :admin do
     get 'dashboard'
-    resources 'users'
-    resources :tables
+
     resources :bookings do
       collection { get :pending }
       member do
@@ -15,15 +15,14 @@ Rails.application.routes.draw do
         patch :reject
       end
     end
+    resources :dishes
+    resources :tables
+    resources :users
   end
 
-  root to: 'visitors#index'
-
-  resources :dishes
+  resources :dishes, only: :index
 
   resources :orders do
-    member do
-      post :add_dish
-    end
+    member { post :add_dish }
   end
 end

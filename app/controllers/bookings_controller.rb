@@ -12,8 +12,7 @@ class BookingsController < ApplicationController
   def create
     if booking.save
       sign_in(:user, booking_owner) if !user_signed_in? && booking.user.present?
-      flash[:notice] = t('shared.created', resource: 'Booking')
-      redirect_to creation_redirect_path
+      redirect_to creation_redirect_path, notice: t('shared.created', resource: 'Booking')
     else
       render :new
     end

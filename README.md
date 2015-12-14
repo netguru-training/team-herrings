@@ -5,6 +5,8 @@
 
 ## :hash: Description
 
+Simple application for management of your own restaurant! Create menu and tables, manage your rooms, enable bookings by guests. Don't waste more time for those simple things.
+
 ## :closed_lock_with_key: Technology
 
 | Name |  Version |

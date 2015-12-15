@@ -15,6 +15,12 @@
 require 'rails_helper'
 
 RSpec.describe Booking, type: :model do
+  let(:booking) { create :booking }
+
+  it 'has a valid factory' do
+    expect(booking).to be_valid
+  end
+
   describe 'database columns' do
     it { should have_db_column :date }
     it { should have_db_column :status }
@@ -24,11 +30,13 @@ RSpec.describe Booking, type: :model do
   end
 
   describe 'scopes' do
-    let(:pending_booking) { create :booking, :pending }
-    subject(:bookings) { described_class.pending }
+    describe '.with_status' do
+      let(:pending_booking) { create :booking, :pending }
+      subject(:bookings) { described_class.with_status('pending') }
 
-    it 'returns only pending bookings' do
-      expect(bookings).to include(pending_booking)
+      it 'returns only pending bookings' do
+        expect(bookings).to include(pending_booking)
+      end
     end
   end
 end

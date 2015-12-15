@@ -13,11 +13,11 @@
 #
 
 class Booking < ActiveRecord::Base
-  
+
   attr_accessor :password, :password_confirmation
-  
+
   before_validation :find_or_create_user, :if => proc { password.present? }
-  
+
   validates :password, :confirmation => true, :if => proc { password.present? }
   validates :date, :status, presence: true
   belongs_to :table
@@ -28,14 +28,14 @@ class Booking < ActiveRecord::Base
   delegate :first_name, :last_name, :email, :to => :customer, :prefix => true, :allow_nil => true
   delegate :name, :to => :user, :prefix => true, :allow_nil => true
 
-  scope :pending, -> { where(status: statuses[:pending]) }
-
   enum status: [:pending, :rejected, :accepted]
-  
+
+  scope :with_status, -> (status) { where(status: status) }
+
   def find_or_create_user
     name = "#{first_name} #{last_name}"
     _user = User.find_by email: email
-    if _user 
+    if _user
       if _user.valid_password?(password)
         self.user = _user
       else

@@ -12,7 +12,7 @@
 #
 
 class Dish < ActiveRecord::Base
-  validates :name, :price, :vat, :weight, presence: true
+  validates :name, :price, :vat, :weight, :category, presence: true
 
   has_many :dishes_orders
   belongs_to :category

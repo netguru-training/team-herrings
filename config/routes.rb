@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     get 'dashboard'
 
     resources :bookings do
-      collection { get :pending }
       member do
         patch :accept
         patch :reject

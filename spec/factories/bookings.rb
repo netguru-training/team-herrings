@@ -22,5 +22,9 @@ FactoryGirl.define do
     trait :pending do
       status :pending
     end
+
+    trait :accepted do
+      status :accepted
+    end
   end
 end

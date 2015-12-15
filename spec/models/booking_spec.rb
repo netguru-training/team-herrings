@@ -32,10 +32,23 @@ RSpec.describe Booking, type: :model do
   describe 'scopes' do
     describe '.with_status' do
       let(:pending_booking) { create :booking, :pending }
-      subject(:bookings) { described_class.with_status('pending') }
+      let(:accepted_booking) { create :booking, :accepted }
 
-      it 'returns only pending bookings' do
-        expect(bookings).to include(pending_booking)
+      context 'with existing status' do
+        subject(:bookings) { described_class.with_status('pending') }
+
+        it 'returns only bookings with that status' do
+          expect(bookings).to include(pending_booking)
+          expect(bookings).to_not include(accepted_booking)
+        end
+      end
+
+      context 'with non-existing status' do
+        subject(:bookings) { described_class.with_status('waiting') }
+
+        it 'returns no bookings' do
+          expect(bookings.count).to eq 0
+        end
       end
     end
   end

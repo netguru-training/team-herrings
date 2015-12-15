@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       end
     end
     resources :dishes
+    resources :categories
     resources :tables
     resources :users
   end

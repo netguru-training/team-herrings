@@ -32,7 +32,7 @@ RSpec.describe Admin::DishesController do
   end
 
   describe 'POST #create' do
-    let(:params) { { dish: attributes_for(:dish) } }
+    let(:params) { { dish: build(:dish).attributes } }
     subject { post :create, params }
 
     context 'returns response with success' do

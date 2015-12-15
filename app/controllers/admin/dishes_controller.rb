@@ -4,6 +4,7 @@ module Admin
 
     expose_decorated(:dish, attributes: :dish_params)
     expose_decorated(:dishes)
+    expose(:categories)
 
     def create
       if dish.save
@@ -29,7 +30,7 @@ module Admin
     private
 
     def dish_params
-      params.require(:dish).permit(:name, :weight, :vat, :price)
+      params.require(:dish).permit(:name, :weight, :vat, :price, :category_id)
     end
   end
 end

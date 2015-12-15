@@ -12,9 +12,10 @@
 #
 
 class Dish < ActiveRecord::Base
-  validates :name, :price, presence: true
+  validates :name, :price, :vat, :weight, presence: true
 
   has_many :dishes_orders
+  belongs_to :category
 
   def net_price
     (price - (price / (vat + 100) * vat)).round(2)

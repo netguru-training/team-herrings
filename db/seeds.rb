@@ -40,12 +40,21 @@ guests.each do |guest_params|
   logger.debug 'created user guest ' << guest.email
 end
 
+5.times do
+  Category.create!(
+    name: Faker::Hipster.word,
+  )
+end
+
+categories = Category.all
+
 30.times do
   Dish.create!(
     name: Faker::Hipster.word,
     weight: Faker::Number.between(100, 1000),
     vat: Faker::Number.between(0, 23),
     price: Faker::Number.decimal(2),
+    category: categories.sample
   )
 end
 

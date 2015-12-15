@@ -3,6 +3,7 @@
   = f.input :weight
   = f.input :vat
   = f.input :price
+  = f.input :category_id, collection: categories
 
   = link_to 'Back', :back, class: 'btn btn-default'
   = f.button :submit

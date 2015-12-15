@@ -5,7 +5,7 @@ class Admin::BookingsController < AdminController
   expose(:booking_customer) { Customer.new }
 
   def index
-    self.bookings = bookings.where(:status => params[:status]) if params[:status].present?
+    self.bookings = bookings.with_status(params[:status]) if params[:status].present?
   end
 
   def create
@@ -37,6 +37,7 @@ class Admin::BookingsController < AdminController
 
   def reject
     self.booking = Booking.find(params[:id])
+
     if booking.update_attributes(booking_reject_params)
       BookingMailer.booking_rejected_email(booking).deliver_now
       redirect_to admin_bookings_path, notice: I18n.t('booking.rejected', date: booking.date)

@@ -1,24 +1,27 @@
-%p
-  = link_to 'New Booking', new_admin_booking_path, class: 'btn btn-default'
-
-%div.btn-group
-  =link_to 'Pending', admin_bookings_path(:status => Booking.statuses['pending']), class: 'btn btn-warning'
-  =link_to 'Accepted', admin_bookings_path(:status => Booking.statuses['accepted']), class: 'btn btn-success'
-  =link_to 'Rejected', admin_bookings_path(:status => Booking.statuses['rejected']), class: 'btn btn-danger'
-  =link_to 'All', admin_bookings_path, class: 'btn btn-default'
-
-%table.table.table-striped
-  %thead
-    %tr
-      %th= t('booking.columns.first_name')
-      %th= t('booking.columns.last_name')
-      %th= t('booking.columns.email')
-      %th= t('booking.columns.date')
-      %th= t('booking.columns.status')
-      %th= "User"
-      %th= "Table"
-      %th= t('shared.actions')
-  %tbody
-    = render bookings
+.row
+  .well
+    .row
+      .col-md-4
+        = link_to 'New Booking', new_admin_booking_path, class: 'btn btn-default'
+      .col-md-8
+        .btn-group.pull-right
+          = link_to 'All', admin_bookings_path, class: 'btn btn-default'
+          = link_to 'Pending', admin_bookings_path(:status => Booking.statuses['pending']), class: 'btn btn-warning'
+          = link_to 'Accepted', admin_bookings_path(:status => Booking.statuses['accepted']), class: 'btn btn-success'
+          = link_to 'Rejected', admin_bookings_path(:status => Booking.statuses['rejected']), class: 'btn btn-danger'
+.row
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= t('booking.columns.first_name')
+        %th= t('booking.columns.last_name')
+        %th= t('booking.columns.email')
+        %th= t('booking.columns.date')
+        %th= t('booking.columns.status')
+        %th= "User"
+        %th= "Table"
+        %th= t('shared.actions')
+    %tbody
+      = render bookings
 
 

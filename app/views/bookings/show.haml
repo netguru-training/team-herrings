@@ -2,10 +2,13 @@
   %tbody
     %tr
       %td= t('booking.columns.first_name')
-      %td= booking.customer.first_name
+      %td= booking.customer_first_name
     %tr
       %td= t('booking.columns.last_name')
-      %td= booking.customer.last_name
+      %td= booking.customer_last_name
+    %tr
+      %td= t('booking.columns.email')
+      %td= booking.customer_email
     %tr
       %td= t('booking.columns.date')
       %td= booking.date

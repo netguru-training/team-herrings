@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :show]
 
   expose_decorated(:bookings)
-  expose(:booking, attributes: :booking_params)
+  expose_decorated(:booking, attributes: :booking_params)
   expose(:booking_owner) { booking.user }
 
   def new
@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
   end
 
   def create
+    booking.user = current_user if user_signed_in?
     if booking.save
       sign_in(:user, booking_owner) if !user_signed_in? && booking.user.present?
       redirect_to creation_redirect_path, notice: t('shared.created', resource: 'Booking')
@@ -26,9 +27,9 @@ class BookingsController < ApplicationController
 
   def booking_params
     params
-      .require(:booking)
-      .permit(:date, :password, :password_confirmation, :status,
-        customer_attributes: [:email, :first_name, :last_name])
+        .require(:booking)
+        .permit(:date, :password, :password_confirmation, :status,
+                customer_attributes: [:email, :first_name, :last_name])
   end
 
   def creation_redirect_path

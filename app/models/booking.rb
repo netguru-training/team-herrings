@@ -25,15 +25,15 @@ class Booking < ActiveRecord::Base
   accepts_nested_attributes_for :customer
 
   delegate :first_name, :last_name, :email, :to => :customer, :prefix => true, :allow_nil => true
-  delegate :name, :to => :user, :prefix => true, :allow_nil => true
+  delegate :name, :email, :to => :user, :prefix => true, :allow_nil => true
 
   enum status: [:pending, :rejected, :accepted]
 
   scope :with_status, -> (status) { where(status: status) }
 
   def find_or_create_user
-    name = "#{first_name} #{last_name}"
-    _user = User.find_by email: email
+    name = "#{customer_first_name} #{customer_last_name}"
+    _user = User.find_by email: customer_email
     if _user
       if _user.valid_password?(password)
         self.user = _user
@@ -41,7 +41,7 @@ class Booking < ActiveRecord::Base
         self.errors.add(:base, 'Wrong password')
       end
     else
-      _user = User.new name: name, email: email, password: password, password_confirmation: password
+      _user = User.new name: name, email: customer_email, password: password, password_confirmation: password
       if _user.valid?
         self.user = _user
       else

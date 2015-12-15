@@ -1,6 +1,10 @@
 %tr
-  %td= booking.customer.first_name
-  %td= booking.customer.last_name
-  %td= booking.customer.email
+  %td= booking.customer_first_name
+  %td= booking.customer_last_name
+  %td= booking.customer_email
   %td= booking.reservation_date
   %td= booking.status
+  %td
+    = link_to booking, { title: t('shared.show') } do
+      %button.btn.btn-default
+        = fa_icon "search"

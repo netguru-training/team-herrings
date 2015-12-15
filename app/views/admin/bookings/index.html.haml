@@ -1,4 +1,11 @@
-= link_to 'New Booking', new_admin_booking_path, class: 'btn btn-default'
+%p
+  = link_to 'New Booking', new_admin_booking_path, class: 'btn btn-default'
+
+%div.btn-group
+  =link_to 'Pending', admin_bookings_path(:status => Booking.statuses['pending']), class: 'btn btn-warning'
+  =link_to 'Accepted', admin_bookings_path(:status => Booking.statuses['accepted']), class: 'btn btn-success'
+  =link_to 'Rejected', admin_bookings_path(:status => Booking.statuses['rejected']), class: 'btn btn-danger'
+  =link_to 'All', admin_bookings_path, class: 'btn btn-default'
 
 %table.table.table-striped
   %thead

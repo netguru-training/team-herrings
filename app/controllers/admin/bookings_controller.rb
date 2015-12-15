@@ -4,6 +4,10 @@ class Admin::BookingsController < AdminController
   expose(:booking_tables) { Table.all }
   expose(:booking_customer) { Customer.new }
 
+  def index
+    self.bookings = bookings.where(:status => params[:status]) if params[:status].present?
+  end
+
   def create
     if booking.save
       redirect_to admin_booking_path(booking), notice: I18n.t('shared.created', resource: 'Booking')

@@ -13,7 +13,6 @@
 #
 
 class Booking < ActiveRecord::Base
-
   attr_accessor :password, :password_confirmation
 
   before_validation :find_or_create_user, :if => proc { password.present? }

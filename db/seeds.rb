@@ -74,7 +74,7 @@ tables = Table.all
   status = rand(0..2)
   Booking.create!(
     date: rand(TIME_FROM..TIME_TO),
-    status: [0,2].sample,
+    status: [0, 2].sample,
     table: tables.sample,
     customer: Customer.new(first_name: first_name,
                            last_name: Faker::Name.last_name,

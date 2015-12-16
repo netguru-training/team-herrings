@@ -1,7 +1,11 @@
 module Admin
   class BookingsController < AdminController
+    rescue_from ActiveRecord::RecordInvalid, with: :reject_reason_not_present
+    before_action :authenticate_admin!
+
     expose_decorated(:bookings) { Booking.includes(:customer, :user, :table).order('date desc') }
     expose(:booking, attributes: :booking_params)
+    expose(:booking_by_id) { Booking.find(params[:id]) }
     expose(:booking_tables) { Table.all }
     expose(:booking_customer) { Customer.new }
 
@@ -26,22 +30,20 @@ module Admin
     end
 
     def accept
-      self.booking = Booking.find(params[:id])
-
-      if booking.accepted!
-        BookingMailer.booking_accepted_email(booking).deliver_now
-        redirect_to admin_bookings_path, notice: I18n.t('booking.accepted', date: booking.date)
+      if booking_by_id.accepted!
+        BookingMailer.booking_accepted_email(booking_by_id).deliver_now
+        redirect_to admin_bookings_path, notice: I18n.t('booking.accepted', date: booking_by_id.date)
       else
         render :show
       end
     end
 
     def reject
-      self.booking = Booking.find(params[:id])
+      booking_by_id.reject_reason = booking_reject_params[:reject_reason]
 
-      if booking.update_attributes(booking_reject_params)
-        BookingMailer.booking_rejected_email(booking).deliver_now
-        redirect_to admin_bookings_path, notice: I18n.t('booking.rejected', date: booking.date)
+      if booking_by_id.rejected!
+        BookingMailer.booking_rejected_email(booking_by_id).deliver_now
+        redirect_to admin_bookings_path, notice: I18n.t('booking.rejected', date: booking_by_id.date)
       else
         render :edit
       end
@@ -54,7 +56,11 @@ module Admin
     end
 
     def booking_reject_params
-      params.require(:booking).permit(:reject_reason).merge(status: 'rejected')
+      params.require(:booking).permit(:reject_reason)
+    end
+
+    def reject_reason_not_present
+      redirect_to admin_booking_path(booking_by_id), alert: I18n.t('activerecord.errors.reject_reason_present')
     end
   end
 end

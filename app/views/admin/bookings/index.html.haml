@@ -6,9 +6,9 @@
       .col-md-8
         .btn-group.pull-right
           = link_to 'All', admin_bookings_path, class: 'btn btn-default'
-          = link_to 'Pending', admin_bookings_path(:status => Booking.statuses['pending']), class: 'btn btn-warning'
-          = link_to 'Accepted', admin_bookings_path(:status => Booking.statuses['accepted']), class: 'btn btn-success'
-          = link_to 'Rejected', admin_bookings_path(:status => Booking.statuses['rejected']), class: 'btn btn-danger'
+          = link_to 'Pending', admin_bookings_path(status: Booking.statuses[:pending]), class: 'btn btn-warning'
+          = link_to 'Accepted', admin_bookings_path(status: Booking.statuses[:accepted]), class: 'btn btn-success'
+          = link_to 'Rejected', admin_bookings_path(status: Booking.statuses[:rejected]), class: 'btn btn-danger'
 .row
   %table.table.table-striped
     %thead

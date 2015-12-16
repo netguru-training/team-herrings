@@ -10,7 +10,8 @@ module Admin
     expose(:booking_customer) { Customer.new }
 
     def index
-      self.bookings = bookings.with_status(params[:status]) if params[:status].present?
+      return unless params[:status].present?
+      self.bookings = bookings.with_status(params[:status])
     end
 
     def create

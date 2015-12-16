@@ -4,7 +4,7 @@ describe BookingDecorator do
   let(:booking) do
     create :booking,
            date: Time.zone.parse('2015-12-13 9:00:00 UTC'),
-           status: :rejected,
+           status: :pending,
            customer: Customer.new(first_name: 'John',
                                   last_name: 'Kowalsky',
                                   email: 'user@example.com')

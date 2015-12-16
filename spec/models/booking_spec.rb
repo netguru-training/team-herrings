@@ -29,6 +29,15 @@ RSpec.describe Booking, type: :model do
     it { should have_db_column :user_id }
   end
 
+  describe 'validations' do
+    context 'when status is set to rejected' do
+      context 'with no reject reason' do
+        subject { build_stubbed :booking, status: Booking.statuses[:rejected], reject_reason: nil }
+        it { is_expected.to_not be_valid }
+      end
+    end
+  end
+
   describe 'scopes' do
     describe '.with_status' do
       let(:pending_booking) { create :booking, :pending }

@@ -1,4 +1,9 @@
-- categories.each do |category|
-  %tr
-    %th= category.name
-    %th
+.panel-group#accordion
+  - categories.each.with_index do |category, index|
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a{ "data-toggle" => "collapse", "data-parent" => "#accordion", href: "#collapse#{index}" }= category.name
+      .panel-collapse.collapse{ id: "collapse#{index}" }
+        .panel-body
+          = render 'dishes/dishes', dishes: category.dishes.decorate

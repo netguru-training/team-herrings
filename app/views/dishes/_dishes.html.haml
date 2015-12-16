@@ -1,7 +1,16 @@
-- dishes.each do |dish|
-  %tr
-    %th= dish.name
-    %th= dish.weight_with_unit
-    %th= dish.vat_with_percent
-    %th= dish.net_price_with_currency
-    %th= dish.price_with_currency
+%table.table.table-striped
+  %thead
+    %tr
+      %th= 'Name'
+      %th= 'Weight'
+      %th= 'Vat'
+      %th= 'Net Price'
+      %th= 'Price'
+  %tbody
+    - dishes.each do |dish|
+      %tr
+        %th= dish.name
+        %th= dish.weight_with_unit
+        %th= dish.vat_with_percent
+        %th= dish.net_price_with_currency
+        %th= dish.price_with_currency

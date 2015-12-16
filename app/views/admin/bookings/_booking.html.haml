@@ -7,12 +7,12 @@
   %td= booking.user_name
   %td= booking.table
   %td
-    = link_to admin_booking_path(booking), { title: t('shared.show') } do
-      %button.btn.btn-default
+    = link_to admin_booking_path(booking), title: t('shared.show') do
+      %button.btn.btn-default{ title: t('shared.show'), data: { tooltip: 'true', placement: 'bottom' } }
         = fa_icon "search"
     = link_to edit_admin_booking_path(booking), { title: t('shared.edit') } do
-      %button.btn.btn-default
+      %button.btn.btn-default{ title: t('shared.edit'), data: { tooltip: 'true', placement: 'bottom' } }
         = fa_icon "edit"
     = link_to admin_booking_path(booking), { method: :delete, title: t('shared.delete') } do
-      %button.btn.btn-default
+      %button.btn.btn-default{ title: t('shared.delete'), data: { tooltip: 'true', placement: 'bottom' } }
         = fa_icon "times"

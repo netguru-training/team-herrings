@@ -32,7 +32,7 @@ RSpec.describe Booking, type: :model do
   describe 'validations' do
     context 'when status is set to rejected' do
       context 'with no reject reason' do
-        subject { build_stubbed :booking, status: Booking.statuses[:rejected], reject_reason: nil }
+        subject { build_stubbed :booking, status: described_class.statuses[:rejected], reject_reason: nil }
         it { is_expected.to_not be_valid }
       end
     end

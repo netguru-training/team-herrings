@@ -26,11 +26,8 @@ class Booking < ActiveRecord::Base
   accepts_nested_attributes_for :customer
 
   delegate :first_name, :last_name, :email, :to => :customer, :prefix => true, :allow_nil => true
-<<<<<<< Updated upstream
   delegate :name, :email, :to => :user, :prefix => true, :allow_nil => true
-=======
   delegate :name, to: :user, prefix: true, allow_nil: true
->>>>>>> Stashed changes
 
   enum status: [:pending, :rejected, :accepted]
 

@@ -5,6 +5,15 @@
         .modal-header
           %h4.modal-title Reject booking
         .modal-body
+          %p
+            %strong= "Customer: "
+            #{booking.customer_first_name} #{booking.customer_last_name}
+          %p
+            %strong= "Table: "
+            = booking.table.decorate.formatted_places
+          %p
+            %strong= "Booking datetime: "
+            = booking.decorate.reservation_date
           .form-inputs
             = f.input :reject_reason
         .modal-footer

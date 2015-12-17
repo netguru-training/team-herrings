@@ -164,7 +164,7 @@ RSpec.describe Admin::BookingsController do
 
       it 'flashes info' do
         subject
-        expect(flash[:notice]).to eq I18n.t('booking.accepted', date: booking.date)
+        expect(flash[:notice]).to eq I18n.t('booking.accepted', date: booking.decorate.reservation_date)
       end
     end
 
@@ -196,7 +196,7 @@ RSpec.describe Admin::BookingsController do
 
       it 'flashes info' do
         subject
-        expect(flash[:notice]).to eq I18n.t('booking.rejected', date: booking.date)
+        expect(flash[:notice]).to eq I18n.t('booking.rejected', date: booking.decorate.reservation_date)
       end
     end
 

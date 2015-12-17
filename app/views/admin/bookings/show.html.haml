@@ -22,16 +22,6 @@
       %tr
         %td= t('booking.columns.reject_reason')
         %td= booking.reject_reason
-- if booking.pending?
-  = simple_form_for booking, url: reject_admin_booking_path(booking) do |f|
-    .form-inputs
-      = f.input :reject_reason
-      = link_to accept_admin_booking_path(booking), { class: 'btn btn-default btn-success', title: t('booking.buttons.accept'), method: 'patch' } do
-        = fa_icon "thumbs-up"
-        = t('booking.buttons.accept')
-      = button_tag(type: 'submit', class: 'btn btn-default btn-danger') do
-        = fa_icon "thumbs-down"
-        = t('booking.buttons.reject')
 .form-group
   = link_to t('shared.edit'), edit_admin_booking_path(booking), class: 'btn btn-default'
   = link_to t('shared.back'), admin_bookings_path, class: 'btn btn-link'

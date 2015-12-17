@@ -16,3 +16,10 @@
     = link_to admin_booking_path(booking), { method: :delete, title: t('shared.delete') } do
       %button.btn.btn-default{ title: t('shared.delete'), data: { tooltip: 'true', placement: 'bottom' } }
         = fa_icon "times"
+    - if booking.pending?
+      = link_to accept_admin_booking_path(booking), { method: :patch, title: t('booking.buttons.accept') } do
+        %button.btn.btn-success{ title: t('booking.buttons.accept'), data: { tooltip: 'true', placement: 'bottom' } }
+          = fa_icon "thumbs-up"
+      = link_to rejection_admin_booking_path(booking), { remote: :true, title: t('booking.buttons.reject') } do
+        %button.btn.btn-danger{ title: t('booking.buttons.reject'), data: { tooltip: 'true', placement: 'bottom' } }
+          = fa_icon "thumbs-down"

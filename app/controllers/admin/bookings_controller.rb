@@ -41,7 +41,7 @@ module Admin
 
     def rejection
       respond_to do |format|
-        format.js {render layout: false}
+        format.js { render layout: false }
       end
     end
 

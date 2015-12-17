@@ -39,6 +39,12 @@ module Admin
       end
     end
 
+    def rejection
+      respond_to do |format|
+        format.js {render layout: false}
+      end
+    end
+
     def reject
       booking_by_id.reject_reason = booking_reject_params[:reject_reason]
 
@@ -61,7 +67,7 @@ module Admin
     end
 
     def reject_reason_not_present
-      redirect_to admin_booking_path(booking_by_id), alert: I18n.t('activerecord.errors.reject_reason_present')
+      redirect_to admin_bookings_path, alert: I18n.t('activerecord.errors.reject_reason_present')
     end
   end
 end

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
     resources :bookings do
       member do
+        get :rejection
         patch :accept
         patch :reject
       end

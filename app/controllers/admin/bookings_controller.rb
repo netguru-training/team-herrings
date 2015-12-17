@@ -33,7 +33,7 @@ module Admin
     def accept
       if booking_by_id.accepted!
         BookingMailer.booking_accepted_email(booking_by_id).deliver_now
-        redirect_to admin_bookings_path, notice: I18n.t('booking.accepted', date: booking_by_id.date)
+        redirect_to admin_bookings_path, notice: I18n.t('booking.accepted', date: booking_by_id.decorate.reservation_date)
       else
         render :show
       end
@@ -50,7 +50,7 @@ module Admin
 
       if booking_by_id.rejected!
         BookingMailer.booking_rejected_email(booking_by_id).deliver_now
-        redirect_to admin_bookings_path, notice: I18n.t('booking.rejected', date: booking_by_id.date)
+        redirect_to admin_bookings_path, notice: I18n.t('booking.rejected', date: booking_by_id.decorate.reservation_date)
       else
         render :edit
       end

@@ -31,6 +31,7 @@ en:
     delete: Delete
     back: Back
     date: date
+    cancel: Cancel
   booking:
     rejected: "Booking for %{date} has been rejected!"
     accepted: "Booking for %{date} has been accepted!"

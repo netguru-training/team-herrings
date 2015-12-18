@@ -31,7 +31,7 @@ RSpec.describe Booking, type: :model do
   end
 
   describe 'validations' do
-    before { Booking.skip_callback(:validation, :before, :generate_number) }
+    before { described_class.skip_callback(:validation, :before, :generate_number) }
 
     context 'without a number' do
       subject { build_stubbed(:booking, number: nil) }
@@ -61,7 +61,7 @@ RSpec.describe Booking, type: :model do
       end
     end
 
-    after { Booking.set_callback(:validation, :before, :generate_number) }
+    after { described_class.set_callback(:validation, :before, :generate_number) }
   end
 
   describe 'scopes' do

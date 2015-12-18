@@ -20,6 +20,7 @@ class Booking < ActiveRecord::Base
   validates :password, confirmation: true, if: proc { password.present? }
   validates :date, :status, presence: true
   validates :reject_reason, presence: true, if: proc { rejected? }
+  validates :number, presence: true, uniqueness: true, numericality: true, length: { is: 6 }
   belongs_to :table
   belongs_to :user
   has_one :customer

@@ -18,6 +18,7 @@ FactoryGirl.define do
     customer
     table
     user
+    number '123456'
 
     trait :pending do
       status :pending

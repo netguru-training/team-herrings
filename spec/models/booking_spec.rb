@@ -27,15 +27,41 @@ RSpec.describe Booking, type: :model do
     it { should have_db_column :table_id }
     it { should have_db_column :reject_reason }
     it { should have_db_column :user_id }
+    it { should have_db_column :number }
   end
 
   describe 'validations' do
+    before { Booking.skip_callback(:validation, :before, :generate_number) }
+
+    context 'without a number' do
+      subject { build_stubbed(:booking, number: nil) }
+      it { is_expected.to_not be_valid}
+    end
+
+    context 'with number that is not unique' do
+      let!(:booking) { create :booking }
+      subject { build_stubbed :booking }
+      it { is_expected.to_not be_valid }
+    end
+
+    context 'when number length different than 6' do
+      subject { build_stubbed :booking, number: '12345' }
+      it { is_expected.to_not be_valid }
+    end
+
+    context 'with number not numerical' do
+      subject { build_stubbed :booking, number: 'abcdef' }
+      it { is_expected.to_not be_valid }
+    end
+
     context 'when status is set to rejected' do
       context 'with no reject reason' do
         subject { build_stubbed :booking, status: described_class.statuses[:rejected], reject_reason: nil }
         it { is_expected.to_not be_valid }
       end
     end
+
+    after { Booking.set_callback(:validation, :before, :generate_number) }
   end
 
   describe 'scopes' do

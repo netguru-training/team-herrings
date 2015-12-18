@@ -35,7 +35,7 @@ RSpec.describe Booking, type: :model do
 
     context 'without a number' do
       subject { build_stubbed(:booking, number: nil) }
-      it { is_expected.to_not be_valid}
+      it { is_expected.to_not be_valid }
     end
 
     context 'with number that is not unique' do

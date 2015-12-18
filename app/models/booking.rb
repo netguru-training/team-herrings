@@ -16,7 +16,7 @@ class Booking < ActiveRecord::Base
   attr_accessor :password, :password_confirmation
 
   before_validation :find_or_create_user, if: proc { password.present? }
-  before_validation :generate_number
+  before_validation :generate_number, on: :create
 
   validates :password, confirmation: true, if: proc { password.present? }
   validates :date, :status, presence: true

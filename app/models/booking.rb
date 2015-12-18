@@ -16,6 +16,7 @@ class Booking < ActiveRecord::Base
   attr_accessor :password, :password_confirmation
 
   before_validation :find_or_create_user, if: proc { password.present? }
+  before_validation :generate_number
 
   validates :password, confirmation: true, if: proc { password.present? }
   validates :date, :status, presence: true
@@ -49,6 +50,15 @@ class Booking < ActiveRecord::Base
       else
         self.errors.add(:base, _user.errors.full_messages.join(', '))
       end
+    end
+  end
+
+  private
+
+  def generate_number
+    loop do
+      self.number = rand(999_999).to_s.center(6, rand(9).to_s)
+      break unless self.class.exists?(number: number.to_s)
     end
   end
 end

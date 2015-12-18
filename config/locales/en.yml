@@ -36,6 +36,7 @@ en:
     rejected: "Booking for %{date} has been rejected!"
     accepted: "Booking for %{date} has been accepted!"
     columns:
+      number: Booking no.
       first_name: First name
       last_name: Last name
       email: Email

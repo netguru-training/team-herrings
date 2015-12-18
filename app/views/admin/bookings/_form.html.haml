@@ -1,5 +1,6 @@
 = simple_form_for [:admin, booking] do |f|
   = f.error_notification
+  = f.input :number, class: 'form-control', readonly: true, required: false if defined?(edit) && edit
   = f.input :date
   = f.association :user, collection: User.all, prompt: "Select user"
   = f.association :table, collection: Table.all, prompt: "Select table"

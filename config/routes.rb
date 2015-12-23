@@ -22,9 +22,11 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:create, :index, :new, :show]
   resources :categories
-  resources :dishes, only: :index
+  resources :dishes, only: [:index, :show]
 
   resources :orders do
     member { post :add_dish }
   end
+
+  get '/menu', to: 'menu#index'
 end

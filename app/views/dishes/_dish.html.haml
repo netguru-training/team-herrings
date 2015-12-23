@@ -1,0 +1,19 @@
+%table.table.table-condensed
+  %tbody
+    %tr
+      %td= 'Name'
+      %td= dish.name
+    %tr
+      %td= 'Weight'
+      %td= dish.weight_with_unit
+    %tr
+      %td= 'Vat'
+      %td= dish.vat_with_percent
+    %tr
+      %td= 'Net Price'
+      %td= dish.net_price_with_currency
+    %tr
+      %td= 'Price'
+      %td= dish.price_with_currency
+
+= link_to 'Back', admin_dishes_path, class: 'btn btn-default'

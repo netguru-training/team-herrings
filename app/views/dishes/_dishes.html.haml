@@ -16,13 +16,17 @@
         %td= dish.net_price_with_currency
         %td= dish.price_with_currency
         %td
-          = link_to admin_dish_path(dish), title: t('shared.show') do
-            %button.btn.btn-default{ title: t('shared.show'), data: { tooltip: 'true', placement: 'bottom' } }
-              = fa_icon "search"
           - if user_signed_in? && current_user.admin?
+            = link_to admin_dish_path(dish), title: t('shared.show') do
+              %button.btn.btn-default{ title: t('shared.show'), data: { tooltip: 'true', placement: 'bottom' } }
+                = fa_icon "search"
             = link_to edit_admin_dish_path(dish), { title: t('shared.edit') } do
               %button.btn.btn-default{ title: t('shared.edit'), data: { tooltip: 'true', placement: 'bottom' } }
                 = fa_icon "edit"
             = link_to admin_dish_path(dish), { method: :delete, title: t('shared.delete') } do
               %button.btn.btn-default{ title: t('shared.delete'), data: { tooltip: 'true', placement: 'bottom' } }
                 = fa_icon "times"
+          - else
+            = link_to dish_path(dish), title: t('shared.show') do
+              %button.btn.btn-default{ title: t('shared.show'), data: { tooltip: 'true', placement: 'bottom' } }
+                = fa_icon "search"

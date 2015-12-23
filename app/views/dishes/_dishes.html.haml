@@ -19,9 +19,10 @@
           = link_to admin_dish_path(dish), title: t('shared.show') do
             %button.btn.btn-default{ title: t('shared.show'), data: { tooltip: 'true', placement: 'bottom' } }
               = fa_icon "search"
-          = link_to edit_admin_dish_path(dish), { title: t('shared.edit') } do
-            %button.btn.btn-default{ title: t('shared.edit'), data: { tooltip: 'true', placement: 'bottom' } }
-              = fa_icon "edit"
-          = link_to admin_dish_path(dish), { method: :delete, title: t('shared.delete') } do
-            %button.btn.btn-default{ title: t('shared.delete'), data: { tooltip: 'true', placement: 'bottom' } }
-              = fa_icon "times"
+          - if user_signed_in? && current_user.admin?
+            = link_to edit_admin_dish_path(dish), { title: t('shared.edit') } do
+              %button.btn.btn-default{ title: t('shared.edit'), data: { tooltip: 'true', placement: 'bottom' } }
+                = fa_icon "edit"
+            = link_to admin_dish_path(dish), { method: :delete, title: t('shared.delete') } do
+              %button.btn.btn-default{ title: t('shared.delete'), data: { tooltip: 'true', placement: 'bottom' } }
+                = fa_icon "times"

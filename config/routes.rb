@@ -16,12 +16,12 @@ Rails.application.routes.draw do
       end
     end
     resources :dishes
-    resources :categories
     resources :tables
     resources :users
   end
 
   resources :bookings, only: [:create, :index, :new, :show]
+  resources :categories
   resources :dishes, only: :index
 
   resources :orders do

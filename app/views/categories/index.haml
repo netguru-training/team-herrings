@@ -1,0 +1,8 @@
+- if user_signed_in? && current_user.admin?
+  .row
+    .col-md-12
+      = link_to 'New Category', new_category_path, class: 'btn btn-default'
+      = link_to 'New Dish', new_admin_dish_path, class: 'btn btn-default'
+.row
+  .col-md-12
+    = render 'categories'

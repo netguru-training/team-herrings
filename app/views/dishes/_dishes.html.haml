@@ -6,11 +6,22 @@
       %th= 'Vat'
       %th= 'Net Price'
       %th= 'Price'
+      %th= 'Actions'
   %tbody
     - dishes.each do |dish|
       %tr
-        %th= dish.name
-        %th= dish.weight_with_unit
-        %th= dish.vat_with_percent
-        %th= dish.net_price_with_currency
-        %th= dish.price_with_currency
+        %td= dish.name
+        %td= dish.weight_with_unit
+        %td= dish.vat_with_percent
+        %td= dish.net_price_with_currency
+        %td= dish.price_with_currency
+        %td
+          = link_to admin_dish_path(dish), title: t('shared.show') do
+            %button.btn.btn-default{ title: t('shared.show'), data: { tooltip: 'true', placement: 'bottom' } }
+              = fa_icon "search"
+          = link_to edit_admin_dish_path(dish), { title: t('shared.edit') } do
+            %button.btn.btn-default{ title: t('shared.edit'), data: { tooltip: 'true', placement: 'bottom' } }
+              = fa_icon "edit"
+          = link_to admin_dish_path(dish), { method: :delete, title: t('shared.delete') } do
+            %button.btn.btn-default{ title: t('shared.delete'), data: { tooltip: 'true', placement: 'bottom' } }
+              = fa_icon "times"
